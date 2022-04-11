@@ -21,7 +21,7 @@ const styleDist = './assets/dist/css/';
 
 // js related
 const jsWatchSrc = 'assets/src/js/**/*.js';
-const jsSrc = 'main.js';
+const jsSrc = 'app.js';
 const jsFolder = 'assets/src/js/';
 const jsDist = './assets/dist/js/';
 const jsFiles = [jsSrc];
