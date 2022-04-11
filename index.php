@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
 
-    <!-- Scripts -->
-    <!-- For browsersync gulp -->
-    <script async src="http://course.vuejs:3000/browser-sync/browser-sync-client.js"></script>
+    
 
 
     <!-- Styles -->
@@ -18,14 +16,17 @@
     <div id="app">
       <div>
         <label for="goal">Goal</label>
-        <input type="text" id="goal" />
-        <button>Add Goal</button>
+        <input type="text" id="goal" v-model="enteredValue" />
+        <button v-on:click="addGoal">Add Goal</button>
       </div>
       <ul>
-       
+        <li v-for="goal in goals">{{ goal }}</li>
       </ul>
     </div>
+    <!-- Scripts -->
+    <!-- For browsersync gulp -->
     <script src="https://unpkg.com/vue@next"></script>
     <script src="assets/dist/js/main.min.js"></script>
-</body>
+    <script async src="http://course.vuejs:8000/browser-sync/browser-sync-client.js"></script>
+  </body>
 </html>

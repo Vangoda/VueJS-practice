@@ -35,7 +35,8 @@ async function browserSync(){
   bSync.init({
     open: false,
     injectChanges: true,
-    proxy: "http://course.vuejs"
+    proxy: "http://course.vuejs",
+    port: 8000
   });
 }
 
