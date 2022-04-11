@@ -16,14 +16,14 @@ const bSync = require('browser-sync').create(); //Special syntax to init.
 const reload = bSync.reload;
 
 // CSS/SCSS related
-const styleSrc = 'src/scss/**/*.scss';
-const styleDist = './dist/css/';
+const styleSrc = 'assets/src/scss/**/*.scss';
+const styleDist = './assets/dist/css/';
 
 // js related
-const jsWatchSrc = 'src/js/**/*.js';
+const jsWatchSrc = 'assets/src/js/**/*.js';
 const jsSrc = 'main.js';
-const jsFolder = 'src/js/';
-const jsDist = './dist/js/';
+const jsFolder = 'assets/src/js/';
+const jsDist = './assets/dist/js/';
 const jsFiles = [jsSrc];
 
 // PHP and html
@@ -35,7 +35,7 @@ async function browserSync(){
   bSync.init({
     open: false,
     injectChanges: true,
-    proxy: "http://gulp-practice.local"
+    proxy: "http://course.vuejs"
   });
 }
 
