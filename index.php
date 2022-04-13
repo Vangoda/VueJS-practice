@@ -25,7 +25,7 @@
   <div id="events">
     <section>
       <h2>Events in Action</h2>
-      <input type="number" v-model="number">
+      <input type="number" v-model="number" v-on:click.left="increment" v-on:click.right="decrement">
       <button v-on:click="increment">+ {{number}}</button>
       <button v-on:click="decrement">- {{number}}</button>
       <p>Result: {{ counter }}</p>
