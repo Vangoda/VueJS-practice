@@ -2,7 +2,9 @@ const app = Vue.createApp({
   data() {
     return {
       yourAge: 27,
-      yourName: 'Vangoda'
+      yourName: 'Vangoda',
+      randomNumber: Math.random(),
+      randomImage: 'https://picsum.photos/600/300'
     };
   },
   methods: {

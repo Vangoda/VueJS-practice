@@ -25,15 +25,16 @@
     <!-- 2) Output your age -->
     <p>{{ yourAge }}</p>
     <!-- 3) Output your age + 5 -->
-    <p>YOUR AGE in 5 years</p>
+    <p>{{ outputAge() }}</p>
     <!-- 4) Output a random number (0 to 1) -->
-    <p>Favorite Number: RANDOM NUMBER BETWEEN 0 AND 1</p>
+    <p>Favorite Number: {{ outputRandomNumber() }}</p>
+    <p>Favorite Number: {{ randomNumber }}</p>
     <div>
       <!-- 5) Display some image you found via Google -->
-      <img src="SOME IMAGE URL" />
+      <img v-bind:src="randomImage" />
     </div>
     <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-    <input type="text" />
+    <input type="text" v-bind:placeholder="yourName" />
   </section>
 </body>
 
