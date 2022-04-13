@@ -24,8 +24,9 @@
   </header>
   <section id="events">
     <h2>Events in Action</h2>
-    <button>Add</button>
-    <button>Remove</button>
+    <input type="number" v-model="number">
+    <button v-on:click="increment">+ {{number}}</button>
+    <button v-on:click="decrement">- {{number}}</button>
     <p>Result: {{ counter }}</p>
   </section>
 </body>
