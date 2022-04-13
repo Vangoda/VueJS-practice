@@ -34,6 +34,12 @@
     <input type="text" v-on:input="setSurname">
     <p>Surname: {{surname}}</p>
   </section>
+  <section>
+    <form>
+      <input type="text">
+      <button>Sign up</button>
+    </form>
+  </section>
 </body>
 
 </html>
