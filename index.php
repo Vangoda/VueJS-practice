@@ -21,9 +21,9 @@
 <body>
   <section id="assignment">
     <!-- 1) Output your name -->
-    <h2>YOUR NAME</h2>
+    <h2>{{ yourName }}</h2>
     <!-- 2) Output your age -->
-    <p>YOUR AGE</p>
+    <p>{{ yourAge }}</p>
     <!-- 3) Output your age + 5 -->
     <p>YOUR AGE in 5 years</p>
     <!-- 4) Output a random number (0 to 1) -->

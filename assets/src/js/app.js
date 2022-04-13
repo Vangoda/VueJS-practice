@@ -1,16 +1,18 @@
 const app = Vue.createApp({
   data() {
     return {
-      goalA: 'Create more goals!',
-      goalB: '<h2>Create even more goals!</h2>',
-      vueLink: 'https://vuejs.org'
+      yourAge: 27,
+      yourName: 'Vangoda'
     };
   },
   methods: {
-    outputGoal() {
-      return Math.random() < 0.5 ? this.goalA : this.goalB;
+    outputAge(age) {
+      return this.yourAge + 5;
+    },
+    outputRandomNumber() {
+      return Math.random();
     }
   }
 });
 
-app.mount('#user-goal');
+app.mount('#assignment');
