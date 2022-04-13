@@ -5,7 +5,7 @@ const app = Vue.createApp({
       addedYears: 5,
       yourName: 'Vangoda',
       randomNumber: Math.random(),
-      randomImage: 'https://picsum.photos/600/300'
+      randomImage: 'https://picsum.photos/600/'
     };
   },
   methods: {

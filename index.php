@@ -34,7 +34,7 @@
       <img v-bind:src="randomImage" />
     </div>
     <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-    <input type="text" v-bind:placeholder="yourName" />
+    <input type="text" v-bind:placeholder="yourName" v-bind:value="yourName" />
   </section>
 </body>
 
