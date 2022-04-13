@@ -2,6 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       yourAge: 27,
+      addedYears: 5,
       yourName: 'Vangoda',
       randomNumber: Math.random(),
       randomImage: 'https://picsum.photos/600/300'
@@ -9,7 +10,7 @@ const app = Vue.createApp({
   },
   methods: {
     outputAge(age) {
-      return this.yourAge + 5;
+      return this.yourAge + age;
     },
     outputRandomNumber() {
       return Math.random();

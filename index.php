@@ -21,14 +21,14 @@
 <body>
   <section id="assignment">
     <!-- 1) Output your name -->
-    <h2>{{ yourName }}</h2>
+    <h2>Master {{ yourName }}</h2>
     <!-- 2) Output your age -->
-    <p>{{ yourAge }}</p>
+    <p>Your age {{ yourAge }}</p>
     <!-- 3) Output your age + 5 -->
-    <p>{{ outputAge() }}</p>
+    <p>{{ outputAge(this.addedYears) }} in {{addedYears}} years.</p>
     <!-- 4) Output a random number (0 to 1) -->
-    <p>Favorite Number: {{ outputRandomNumber() }}</p>
-    <p>Favorite Number: {{ randomNumber }}</p>
+    <p>Favorite Number 1: {{ outputRandomNumber() }}</p>
+    <p>Favorite Number 2: {{ randomNumber }}</p>
     <div>
       <!-- 5) Display some image you found via Google -->
       <img v-bind:src="randomImage" />
