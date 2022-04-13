@@ -22,24 +22,26 @@
   <header>
     <h1>Vue Events</h1>
   </header>
-  <section id="events">
-    <h2>Events in Action</h2>
-    <input type="number" v-model="number">
-    <button v-on:click="increment">+ {{number}}</button>
-    <button v-on:click="decrement">- {{number}}</button>
-    <p>Result: {{ counter }}</p>
-    <hr>
-    <input type="text" v-model="name">
-    <p>Name: {{name}}</p>
-    <input type="text" v-on:input="setSurname">
-    <p>Surname: {{surname}}</p>
-  </section>
-  <section>
-    <form>
-      <input type="text">
-      <button>Sign up</button>
-    </form>
-  </section>
+  <div id="events">
+    <section>
+      <h2>Events in Action</h2>
+      <input type="number" v-model="number">
+      <button v-on:click="increment">+ {{number}}</button>
+      <button v-on:click="decrement">- {{number}}</button>
+      <p>Result: {{ counter }}</p>
+      <hr>
+      <input type="text" v-model="name">
+      <p>Name: {{name}}</p>
+      <input type="text" v-on:input="setSurname">
+      <p>Surname: {{surname}}</p>
+    </section>
+    <section>
+      <form v-on:submit="submitForm">
+        <input type="text">
+        <button>Sign up</button>
+      </form>
+    </section>
+  </div>
 </body>
 
 </html>

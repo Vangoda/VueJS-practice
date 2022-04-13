@@ -17,6 +17,9 @@ const app = Vue.createApp({
     },
     setSurname(event) {
       this.surname = event.target.value;
+    },
+    submitForm(event) {
+      event.preventDefault();
     }
   }
 });
