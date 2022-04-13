@@ -36,7 +36,7 @@
       <p>Surname: {{surname}}</p>
     </section>
     <section>
-      <form v-on:submit="submitForm">
+      <form v-on:submit.prevent>
         <input type="text">
         <button>Sign up</button>
       </form>
