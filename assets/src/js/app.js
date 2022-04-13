@@ -4,7 +4,7 @@ const app = Vue.createApp({
       counter: 0,
       number: 1,
       name: 'Ivan',
-      surname: ''
+      surname: 'Juric'
     };
   },
   methods: {
