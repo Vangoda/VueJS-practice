@@ -28,6 +28,11 @@
     <button v-on:click="increment">+ {{number}}</button>
     <button v-on:click="decrement">- {{number}}</button>
     <p>Result: {{ counter }}</p>
+    <hr>
+    <input type="text" v-model="name">
+    <p>Name: {{name}}</p>
+    <input type="text" v-on:input="setSurname">
+    <p>Surname: {{surname}}</p>
   </section>
 </body>
 
