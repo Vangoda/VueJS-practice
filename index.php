@@ -11,7 +11,7 @@
   <!-- For browsersync gulp -->
   <script defer src="https://unpkg.com/vue@next"></script>
   <script defer src="assets/dist/js/app.min.js"></script>
-  <script async src="http://course.vuejs:8000/browser-sync/browser-sync-client.js"></script>
+  <!-- <script async src="http://course.vuejs:8000/browser-sync/browser-sync-client.js"></script> -->
 
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
@@ -25,15 +25,16 @@
   <div id="events">
     <section>
       <h2>Events in Action</h2>
-      <input type="number" v-model="number" v-on:click.left="increment" v-on:click.right="decrement">
+      <input type="number" v-model="number" v-on:click.left="increment" v-on:click.right.prevent="decrement">
       <button v-on:click="increment">+ {{number}}</button>
       <button v-on:click="decrement">- {{number}}</button>
+      <p v-once>Initial: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
       <hr>
       <input type="text" v-model="name">
       <p>Name: {{name}}</p>
-      <input type="text" v-on:input="setSurname">
-      <p>Surname: {{surname}}</p>
+      <input type="text" v-on:input="setSurname" v-on:keyup.enter="confirmName">
+      <p>Surname: {{confirmedName}}</p>
     </section>
     <section>
       <form v-on:submit.prevent>
