@@ -1,31 +1,23 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
-      number: 1,
-      name: 'Ivan',
-      confirmedName: '',
-      surname: 'Juric'
-    };
+      output1text: '',
+      output2text: '',
+      confirmedOutput2text: ''
+    }
   },
   methods: {
-    increment() {
-      // Increment the counter
-      this.counter += this.number;
+    output1(event) {
+      this.output1text = event.target.value;
     },
-    decrement() {
-      this.counter -= this.number;
+    output2(event) {
+      this.output2text = event.target.value;
     },
-    setSurname(event) {
-      this.surname = event.target.value;
+    updateOutput2text(){
+      this.confirmedOutput2text = this.output2text;
     },
-    submitForm(event) {
-      event.preventDefault();
-    },
-    confirmName(){
-      this.confirmedName = this.surname;
+    alert(text){
+      alert(text)
     }
   }
-});
-
-app.mount('#events');
+}).mount('#assignment');
