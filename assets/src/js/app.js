@@ -1,60 +1,49 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
-      name: '',
-      lastName: '',
-      // fullname: ''
+      result: 0
+      // resultText: "Not there yet"
     };
   },
   watch: {
-    // Runs whenever vairable named as method changes
+    // Runs whenever variable named as method changes
     // name(name, oldName) {
 
-    //   this.fullname = (name === "") ? "" : `${name} Yyayarn`;
-    // },
-    // lastName(lastName) {
-    //   this.fullname = `${this.name} ${lastName}`;
-    // }
-    counter(counter){
-      // Reset counter when it goes over 50
+    result(result) {
+      // Log result
+      console.log(this.result);
 
-      if (counter > 50){
-        const vueThis = this;
-        setTimeout( () => {
-          vueThis.counter = 0;
-        }, 1000);
-      }
+      // Reset the result value to 0 after 5 seconds
+      setTimeout(() => {
+        this.result = 0;
+      }, 5000)
     }
   },
   computed: {
     // Runs whenever one of the referenced
     // variables changes.
-    fullname() {
-      console.log('running fullname ...')
-      return this.name !== '' ? `${this.name} ${this.lastName}` : '';
+
+    resultText() {
+      // Change the resultText baseed on result value
+      switch (true) {
+        default:
+        case (this.result < 37):
+          return "Not there yet"
+          break;
+        case (this.result === 37):
+          return "Exactly there!"
+          break;
+        case (this.result > 37):
+          return "Too much!"
+          break;
+      }
     }
   },
   methods: {
-    outputFullName() {
-      return this.name !== '' ? `${this.name} ${lastName}` : '';
-    },
-    setName(event, lastName) {
-      this.name = event.target.value;
-    },
-    add(num) {
-      this.counter = this.counter + num;
-    },
-    reduce(num) {
-      this.counter = this.counter - num;
-      // this.counter--;
-    },
-    resetInput() {
-      // Clears the input
-
-      this.name = "";
+    add(number){
+      this.result += number;
     }
   }
 });
 
-app.mount('#events');
+app.mount('#assignment');
