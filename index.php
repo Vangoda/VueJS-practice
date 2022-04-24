@@ -24,10 +24,14 @@
   </header>
   <section id="events">
     <h2>Events in Action</h2>
-    <button v-on:click="add(10)">Add 10</button>
+    <!-- @ is shorthand for v-on: -->
+    <button @click="add(10)">Add 10</button>
     <button v-on:click="reduce(5)">Subtract 5</button>
     <p>Result: {{ counter }}</p>
+    <!-- just : is shorthand for v-bind: -->
+    <input type="text" :value="name">
     <input type="text" v-model="name">
+    <input type="text" v-model="lastName">
     <button v-on:click="resetInput">Reset input</button>
     <p>Your Name: {{ fullname }}</p>
   </section>
