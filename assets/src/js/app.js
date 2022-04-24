@@ -1,23 +1,44 @@
 const app = Vue.createApp({
   data() {
     return {
-      output1text: '',
-      output2text: '',
-      confirmedOutput2text: ''
+      counter: 0,
+      name: '',
+      fullname: ''
+    };
+  },
+  watch: {
+    name(name, oldName) {
+      // Runs whenever name changes
+
+      this.fullname = (name === "") ? "" : `${name} Yyayarn`;
     }
   },
+  computed: {
+    // fullname() {
+    //   console.log('running fullname ...')
+    //   return this.name !== '' ? `${this.name} Yayaran` : '';
+    // }
+  },
   methods: {
-    output1(event) {
-      this.output1text = event.target.value;
+    outputFullName() {
+      return this.name !== '' ? `${this.name} Yayaran` : '';
     },
-    output2(event) {
-      this.output2text = event.target.value;
+    setName(event, lastName) {
+      this.name = event.target.value;
     },
-    updateOutput2text(){
-      this.confirmedOutput2text = this.output2text;
+    add(num) {
+      this.counter = this.counter + num;
     },
-    alert(text){
-      alert(text)
+    reduce(num) {
+      this.counter = this.counter - num;
+      // this.counter--;
+    },
+    resetInput() {
+      // Clears the input
+
+      this.name = "";
     }
   }
-}).mount('#assignment');
+});
+
+app.mount('#events');
