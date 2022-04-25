@@ -9,7 +9,7 @@ const app = Vue.createApp({
     // Runs whenever variable named as method changes
     // name(name, oldName) {
 
-    result(result) {
+    resultText(result) {
       // Log result
       console.log(this.result);
 
