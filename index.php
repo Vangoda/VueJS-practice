@@ -24,9 +24,15 @@
   </header>
   <section id="styling">
     <button @click="boxSelect('clear')">Clear</button>
-    <div @click="boxSelect('A')" class="demo"></div>
-    <div @click="boxSelect('B')" class="demo"></div>
-    <div @click="boxSelect('C')" class="demo"></div>
+    <div :style="{borderColor: boxASelected
+    ? '#88DDAA' : '#ccc'}" @click="boxSelect('A')" class="demo">
+    </div>
+    <div :style="{borderColor: boxBSelected
+    ? '#88DDAA' : '#ccc'}" @click="boxSelect('B')" class="demo">
+    </div>
+    <div :style="{borderColor: boxCSelected
+    ? '#88DDAA' : '#ccc'}" @click="boxSelect('C')" class="demo">
+    </div>
   </section>
 </body>
 
