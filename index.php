@@ -20,17 +20,13 @@
 
 <body>
   <header>
-    <h1>Reactivity in Action</h1>
+    <h1>Vue Dynamic Styling</h1>
   </header>
-  <section id="assignment">
-    <button @click="add(5)">Add 5</button>
-    &nbsp;
-    <button @click="add(1)">Add 1</button>
-    <!-- 1) Connect the buttons and calculate a value (a number) -->
-    <!-- Show "Not there yet" until you reach a result of exactly 37 -->
-    <!-- Show "Too much!" if the result is greater than 37 -->
-    <p>Result: {{ resultText }}</p>
-    <!-- 2) Watch for changes in "result" and reset the value to 0 after 5 seconds -->
+  <section id="styling">
+    <button @click="boxSelect('clear')">Clear</button>
+    <div @click="boxSelect('A')" class="demo"></div>
+    <div @click="boxSelect('B')" class="demo"></div>
+    <div @click="boxSelect('C')" class="demo"></div>
   </section>
 </body>
 
