@@ -10,15 +10,15 @@ const app = Vue.createApp({
     boxSelect(box) {
       switch (box) {
         case "A":
-          this.boxASelected = true;
+          this.boxASelected = !this.boxASelected;
           break;
 
         case "B":
-          this.boxBSelected = true;
+          this.boxBSelected = !this.boxBSelected;
           break;
 
         case "C":
-          this.boxCSelected = true;
+          this.boxCSelected = !this.boxCSelected;
           break;
 
         default:
