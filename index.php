@@ -25,7 +25,7 @@
   <section id="styling">
     <button @click="boxSelect('clear')">Clear</button>
 
-    <div class="demo" :class="boxASelected ? 'active' : ''" @click="boxSelect('A')">
+    <div class="demo" :class="boxAClasses" @click="boxSelect('A')">
     </div>
 
     <div :class="{
@@ -35,6 +35,9 @@
     </div>
 
     <div class="demo" :class="{active: boxCSelected}" @click="boxSelect('C')" class="demo">
+    </div>
+
+    <div :class="['demo', {active: boxDSelected}]" @click="boxSelect('D')" class="demo">
     </div>
   </section>
 </body>
