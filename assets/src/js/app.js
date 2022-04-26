@@ -1,44 +1,24 @@
 const app = Vue.createApp({
   data() {
     return {
-      boxASelected: false,
-      boxBSelected: false,
-      boxCSelected: false,
-      boxDSelected: false,
+      input1Text: "",
+      toggleState: false,
     };
   },
   computed: {
-    boxAClasses() {
-      return { active: this.boxASelected };
+    class1Computed() {
+      if (["user1", "user2"].includes(this.input1Text)) {
+        return this.input1Text;
+      }
+    },
+    class2Computed() {
+      this.toggleState = !this.toggleState;
+      return this.toggleState ? "visible" : "hidden";
     },
   },
   methods: {
-    boxSelect(box) {
-      switch (box) {
-        case "A":
-          this.boxASelected = !this.boxASelected;
-          break;
-
-        case "B":
-          this.boxBSelected = !this.boxBSelected;
-          break;
-
-        case "C":
-          this.boxCSelected = !this.boxCSelected;
-          break;
-
-        case "D":
-          this.boxDSelected = !this.boxDSelected;
-          break;
-
-        default:
-          this.boxASelected = false;
-          this.boxBSelected = false;
-          this.boxCSelected = false;
-          break;
-      }
-    },
+    toggleParagraph() {},
   },
 });
 
-app.mount("#styling");
+app.mount("#assignment");

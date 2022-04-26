@@ -20,25 +20,23 @@
 
 <body>
   <header>
-    <h1>Vue Dynamic Styling</h1>
+    <h1>Vue Styling</h1>
   </header>
-  <section id="styling">
-    <button @click="boxSelect('clear')">Clear</button>
+  <section id="assignment">
+    <!-- 1) Fetch the user input and use it as a CSS class -->
+    <!-- The entered class should be added to the below paragraph -->
+    <input type="text" v-model="input1Text" />
+    <!-- (available classes: "user1", "user2") -->
+    <p :class="{class1Computed, class2Computed}">
+      Style me!
+    </p>
+    <button @click="toggleParagraph()">Toggle Paragraph</button>
+    <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
+    <!-- Clicking the button should toggle between the two options -->
 
-    <div class="demo" :class="boxAClasses" @click="boxSelect('A')">
-    </div>
-
-    <div :class="{
-      demo: true,
-      active: boxBSelected
-    }" @click="boxSelect('B')">
-    </div>
-
-    <div class="demo" :class="{active: boxCSelected}" @click="boxSelect('C')" class="demo">
-    </div>
-
-    <div :class="['demo', {active: boxDSelected}]" @click="boxSelect('D')" class="demo">
-    </div>
+    <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
+    <input type="text" />
+    <p>Style me inline!</p>
   </section>
 </body>
 
