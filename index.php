@@ -30,8 +30,11 @@
       No goals have been added yet - please start adding some!
     </p>
     <ul>
-      <li v-for="(goal, index) in goals" @click="removeGoal(index)">
-        {{index+1}}. {{ goal }}
+      <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+        <p>
+          {{index+1}}. {{ goal }}
+        </p>
+        <input type="text" @click.stop>
       </li>
     </ul>
     <br>
