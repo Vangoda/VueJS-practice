@@ -29,8 +29,8 @@
     <p v-show="goals.length < 1">
       No goals have been added yet - please start adding some!
     </p>
-    <ul v-for="goal in goals">
-      <li>{{ goal }}</li>
+    <ul>
+      <li v-for="goal in goals">{{ goal }}</li>
     </ul>
   </section>
 </body>
