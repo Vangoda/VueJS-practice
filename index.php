@@ -30,7 +30,9 @@
       No goals have been added yet - please start adding some!
     </p>
     <ul>
-      <li v-for="(goal, index) in goals">{{index+1}}. {{ goal }}</li>
+      <li v-for="(goal, index) in goals" @click="removeGoal(index)">
+        {{index+1}}. {{ goal }}
+      </li>
     </ul>
     <br>
     <ul>

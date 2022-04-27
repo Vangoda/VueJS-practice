@@ -6,9 +6,12 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    addGoal(event) {
+    addGoal() {
       // Pushes input value to goals array
       this.goalInputValue !== "" && this.goals.push(this.goalInputValue);
+    },
+    removeGoal(index) {
+      this.goals.splice(index, 1);
     },
   },
 });
