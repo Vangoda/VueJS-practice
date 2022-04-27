@@ -30,7 +30,17 @@
       No goals have been added yet - please start adding some!
     </p>
     <ul>
-      <li v-for="goal in goals">{{ goal }}</li>
+      <li v-for="(goal, index) in goals">{{index+1}}. {{ goal }}</li>
+    </ul>
+    <br>
+    <ul>
+      <li v-for="(value, key, index) in {name: 'Ivan', surname: 'Jurić'}">
+        {{index+1}}. {{key}}: {{value}}
+      </li>
+    </ul>
+    <br>
+    <ul>
+      <li v-for="number in 10">{{number}}</li>
     </ul>
   </section>
 </body>
