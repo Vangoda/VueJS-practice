@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VueJS</title>
+  <title>VueJS excercise</title>
 
   <!-- Scripts -->
   <!-- For browsersync gulp -->
@@ -20,23 +20,18 @@
 
 <body>
   <header>
-    <h1>Vue Styling</h1>
+    <h1>Vue Course Goals</h1>
   </header>
-  <section id="assignment">
-    <!-- 1) Fetch the user input and use it as a CSS class -->
-    <!-- The entered class should be added to the below paragraph -->
-    <input type="text" v-model="input1Text" />
-    <!-- (available classes: "user1", "user2") -->
-    <p :class="paragraphClass1">
-      Style me!
+  <section id="user-goals">
+    <h2>My course goals</h2>
+    <input @keyup.enter="addGoal()" type="text" v-model="goalInputValue" />
+    <button @click="addGoal()">Add Goal</button>
+    <p v-show="goals.length < 1">
+      No goals have been added yet - please start adding some!
     </p>
-    <button @click="toggleParagraph()">Toggle Paragraph</button>
-    <!-- 2) Use the "visible" and "hidden" classes to show/ hide the above paragraph -->
-    <!-- Clicking the button should toggle between the two options -->
-
-    <!-- 3) Add dynamic inline styling to the below paragraph and let the user enter a background-color -->
-    <input type="text" v-model="paragraph2Color" />
-    <p :style="{'background-color': paragraph2Color}">Style me inline!</p>
+    <ul v-for="goal in goals">
+      <li>{{ goal }}</li>
+    </ul>
   </section>
 </body>
 
