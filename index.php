@@ -30,6 +30,7 @@
       No goals have been added yet - please start adding some!
     </p>
     <ul>
+      <!-- Key has to be unique for this to work properly -->
       <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
         <p>
           {{index+1}}. {{ goal }}
