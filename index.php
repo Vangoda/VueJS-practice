@@ -20,24 +20,35 @@
 
 <body>
   <header>
-    <h1>Vue Lists and Conditional Content</h1>
+    <h1>Monster Slayer</h1>
   </header>
-  <section id="assignment">
-    <h2>Assignment</h2>
-    <!-- 1) Add code to manage a list of tasks in a Vue app -->
-    <!-- When clicking "Add Task" a new task with the entered text should be added -->
-    <input v-model="taskText" @keyup.enter="addTask()" type="text">
-    <button @click="addTask()">Add Task</button>
-    <ul>
-      <!-- 2) Output the list of tasks here -->
-      <li v-show="showTaskListToggle" v-for="task of taskList">
-        {{ task }}
-      </li>
-    </ul>
-    <!-- 3) When the below button is pressed, the list should be shown or hidden -->
-    <!-- BONUS: Also update the button caption -->
-    <button @click="toggleShowTaskList()">{{ showTaskListToggleButtonAction }} List</button>
-  </section>
+  <div id="game">
+    <section id="monster" class="container">
+      <h2>Monster Health</h2>
+      <div class="healthbar">
+        <div :style="{width: monsterHP+'%'}" class="healthbar__value">{{monsterHP}}</div>
+      </div>
+    </section>
+
+    <section id="player" class="container">
+      <h2>Your Health</h2>
+      <div class="healthbar">
+        <div :style="{width: playerHP+'%'}" class="healthbar__value">{{playerHP}}</div>
+      </div>
+    </section>
+
+    <section id="controls">
+      <button @click="attackMonster()">ATTACK</button>
+      <button>SPECIAL ATTACK</button>
+      <button>HEAL</button>
+      <button>SURRENDER</button>
+    </section>
+
+    <section id="log" class="container">
+      <h2>Battle Log</h2>
+      <ul></ul>
+    </section>
+  </div>
 </body>
 
 </html>
