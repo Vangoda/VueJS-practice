@@ -5,6 +5,18 @@ const app = Vue.createApp({
       playerHP: 100,
     };
   },
+  computed: {
+    monsterBarStyles() {
+      return {
+        width: this.monsterHP + "%",
+      };
+    },
+    playerBarStyles() {
+      return {
+        width: this.playerHP + "%",
+      };
+    },
+  },
   methods: {
     attackMonster() {
       // Decrease monsters health by random amount

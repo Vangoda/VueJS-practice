@@ -26,14 +26,16 @@
     <section id="monster" class="container">
       <h2>Monster Health</h2>
       <div class="healthbar">
-        <div :style="{width: monsterHP+'%'}" class="healthbar__value">{{monsterHP}}</div>
+        <div :style="monsterBarStyles" class=" healthbar__value"></div>
+        <div class="healthbar__text">{{monsterHP}}</div>
       </div>
     </section>
 
     <section id="player" class="container">
       <h2>Your Health</h2>
       <div class="healthbar">
-        <div :style="{width: playerHP+'%'}" class="healthbar__value">{{playerHP}}</div>
+        <div :style="playerBarStyles" class="healthbar__value"></div>
+        <div class="healthbar__text">{{playerHP}}</div>
       </div>
     </section>
 

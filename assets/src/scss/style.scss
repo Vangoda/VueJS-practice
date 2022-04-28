@@ -30,17 +30,24 @@ section {
   height: 40px;
   border: 1px solid #575757;
   margin: 1rem 0;
-  background: hsl(0, 100%, 33%);
+
+  background: linear-gradient(-33deg, hsl(0, 100%, 33%), hsl(0, 100%, 10%));
 }
 
 .healthbar__value {
-  background-color: hsl(162, 100%, 33%);
+  background: linear-gradient(33deg, hsl(162, 100%, 20%), hsl(162, 100%, 45%));
+
   width: 100%;
   height: 100%;
+
+  transition: width 0.2s;
+}
+
+.healthbar__text {
+  position: relative;
+  top: -1.5em;
+
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   font-size: 1.6em;
   font-weight: 600;
