@@ -14,7 +14,7 @@ const app = Vue.createApp({
     },
   },
   methods: {
-    addTask: function () {
+    addTask() {
       // Adds a task with the text from taskText input to the task list.
 
       this.taskList.push(this.taskText);
