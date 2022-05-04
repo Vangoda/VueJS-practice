@@ -48,7 +48,7 @@
       </div>
     </section>
 
-    <section id="controls">
+    <section v-if="winner===null" id="controls">
       <button :disabled="gameOver" @click="attackMonster()">ATTACK</button>
       <button :disabled="specialAttackDisabled" @click="specialAttackMonster()">SPECIAL ATTACK</button>
       <button :disabled="gameOver" @click="healPlayer">HEAL</button>
