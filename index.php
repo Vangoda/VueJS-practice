@@ -57,7 +57,9 @@
 
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li v-for="battleLog in battleLogs">{{battleLog}}</li>
+      </ul>
     </section>
   </div>
 </body>

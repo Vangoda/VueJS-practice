@@ -30,18 +30,29 @@ const app = Vue.createApp({
   },
   watch: {
     currentRound() {
+      // Log new round
+      this.logMessage(`Round ${this.currentRound} started.`);
+
+      // Determine if the game is over
       this.winner = checkVictoryConditions(this.monsterHP, this.playerHP);
+    },
+    winner() {
+      // Log the game end and the winner
+      this.logMessage(`Game over.`);
     },
   },
   methods: {
     attackMonster(baseAttack = 5, attackRange = 12) {
       // Decrease monsters health by semi random amount
 
-      // Increment the round counter
-      this.currentRound++;
+      // Calcualte damage and deduce it from monsterHP
+      const damage = randomValue(baseAttack, attackRange);
+      this.monsterHP -= damage;
+      // Log the attack
+      this.logMessage(
+        generateBattleLogText("Player", "monster", "attack", damage)
+      );
 
-      // Random attack the monster
-      this.monsterHP -= randomValue(baseAttack, attackRange);
       // Keep the HP from going below zero
       this.monsterHP = this.monsterHP < 0 ? 0 : this.monsterHP;
 
@@ -57,7 +68,13 @@ const app = Vue.createApp({
       const attackRange = 5;
 
       // Random attack the player
-      this.playerHP -= randomValue(baseAttack, attackRange);
+      const damage = randomValue(baseAttack, attackRange);
+      this.playerHP -= damage;
+      // Log the attack
+      this.logMessage(
+        generateBattleLogText("Monster", "player", "attack", damage)
+      );
+
       // Keep the HP from going below zero
       this.playerHP = this.playerHP < 0 ? 0 : this.playerHP;
     },
@@ -77,7 +94,11 @@ const app = Vue.createApp({
       const healRange = 10;
 
       // Calculate and add the HP to players health
-      this.playerHP += randomValue(baseHeal, healRange);
+      const heal = randomValue(baseHeal, healRange);
+      this.playerHP += heal;
+      // Log the action
+      this.logMessage(generateBattleLogText("Player", "", "heal", heal));
+
       // Ensure that HP doesn't go above 100
       this.playerHP = this.playerHP > 100 ? 100 : this.playerHP;
 
@@ -89,6 +110,8 @@ const app = Vue.createApp({
     },
     surrender() {
       // Set winner to monster
+      // Log the surrender
+      this.logMessage(`Player surrendered.`);
 
       this.winner = "monster";
     },
@@ -101,12 +124,18 @@ const app = Vue.createApp({
         currentRound: 1,
         winner: null,
         currentRound: 1,
+        battleLogs: [`Round 1 started.`],
       };
     },
     resetGame() {
       // Resets all the game parameters to default values
 
       Object.assign(this.$data, this.initializeGameData());
+    },
+    logMessage(message) {
+      // Adds the message to the top of the game log
+
+      this.battleLogs.unshift(message);
     },
   },
 });
@@ -162,4 +191,11 @@ function checkVictoryConditions(monsterHP, playerHP) {
       return null;
       break;
   }
+}
+
+function generateBattleLogText(agent, subject, action, value) {
+  // Concatenates a battle log string from input
+  // Color the agent, subject and value.
+
+  return `${agent} ${action}ed the ${subject} for ${value} HP.`;
 }
