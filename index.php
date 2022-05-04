@@ -23,6 +23,14 @@
     <h1>Monster Slayer</h1>
   </header>
   <div id="game">
+
+    <section v-if="winner!=null" class=" container">
+      <h2>Game Over!</h2>
+      <h3 v-show="winner==='player'">You have won!</h3>
+      <h3 v-show="winner==='monster'">Monster has won!</h3>
+      <h3 v-show="winner==='draw'">It is a draw!</h3>
+    </section>
+
     <section id="monster" class="container">
       <h2>Monster Health</h2>
       <div class="healthbar">

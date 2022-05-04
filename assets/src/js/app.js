@@ -6,6 +6,7 @@ const app = Vue.createApp({
       monsterHP: 100,
       playerHP: 100,
       currentRound: 1,
+      winner: null,
     };
   },
   computed: {
@@ -27,7 +28,7 @@ const app = Vue.createApp({
   },
   watch: {
     currentRound() {
-      checkVictoryConditions(this.monsterHP, this.playerHP);
+      this.winner = checkVictoryConditions(this.monsterHP, this.playerHP);
     },
   },
   methods: {
@@ -108,19 +109,28 @@ function checkVictoryConditions(monsterHP, playerHP) {
   // Display alert.
 
   switch (true) {
+    // Draw condition
     case monsterHP <= 0 && playerHP <= 0:
       console.log("It's a draw");
-      alert("It's a draw");
+      // alert("It's a draw");
+      return "draw";
+
       break;
 
+    // Victory condition
     case monsterHP <= 0:
       console.log("You have won!");
-      alert("You have won!");
+      // alert("You have won!");
+      return "player";
+
       break;
 
+    // Loss condition
     case playerHP <= 0:
       console.log("You have lost!");
-      alert("You have lost!");
+      // alert("You have lost!");
+      return "monster";
+
       break;
 
     default:
