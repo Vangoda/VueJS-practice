@@ -24,11 +24,12 @@
   </header>
   <div id="game">
 
-    <section v-if="winner!=null" class=" container">
+    <section v-if="winner!==null" class=" container">
       <h2>Game Over!</h2>
       <h3 v-show="winner==='player'">You have won!</h3>
       <h3 v-show="winner==='monster'">Monster has won!</h3>
       <h3 v-show="winner==='draw'">It is a draw!</h3>
+      <button @click="resetGame()">New Game</button>
     </section>
 
     <section id="monster" class="container">
@@ -48,10 +49,10 @@
     </section>
 
     <section id="controls">
-      <button @click="attackMonster()">ATTACK</button>
+      <button :disabled="gameOver" @click="attackMonster()">ATTACK</button>
       <button :disabled="specialAttackDisabled" @click="specialAttackMonster()">SPECIAL ATTACK</button>
-      <button @click="healPlayer">HEAL</button>
-      <button>SURRENDER</button>
+      <button :disabled="gameOver" @click="healPlayer">HEAL</button>
+      <button :disabled="gameOver" @click="surrender">SURRENDER</button>
     </section>
 
     <section id="log" class="container">

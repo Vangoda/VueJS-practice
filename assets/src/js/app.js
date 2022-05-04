@@ -1,13 +1,8 @@
-let currentRound = 1;
+// Create game app
 
 const app = Vue.createApp({
   data() {
-    return {
-      monsterHP: 100,
-      playerHP: 100,
-      currentRound: 1,
-      winner: null,
-    };
+    return this.initializeGameData();
   },
   computed: {
     monsterBarStyles() {
@@ -21,9 +16,16 @@ const app = Vue.createApp({
       };
     },
     specialAttackDisabled() {
-      // Return true if not divisible by 3.
+      // Return true if not divisible by 3
+      // or if the game is over.
 
-      return this.currentRound % 3 !== 0;
+      return this.currentRound % 3 !== 0 || this.gameOver;
+    },
+    gameOver() {
+      // Returns true if the game is over.
+      // Determined by the value of winner.
+
+      return this.winner !== null;
     },
   },
   watch: {
@@ -85,6 +87,27 @@ const app = Vue.createApp({
       // Increment round counter
       this.currentRound++;
     },
+    surrender() {
+      // Set winner to monster
+
+      this.winner = "monster";
+    },
+    initializeGameData() {
+      // Returns data object with default game data
+
+      return {
+        monsterHP: 100,
+        playerHP: 100,
+        currentRound: 1,
+        winner: null,
+        currentRound: 1,
+      };
+    },
+    resetGame() {
+      // Resets all the game parameters to default values
+
+      Object.assign(this.$data, this.initializeGameData());
+    },
   },
 });
 
@@ -133,7 +156,10 @@ function checkVictoryConditions(monsterHP, playerHP) {
 
       break;
 
+    // Default condition, winner is null.
     default:
+      console.log("Still struggling!");
+      return null;
       break;
   }
 }
