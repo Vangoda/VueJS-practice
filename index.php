@@ -11,7 +11,7 @@
   <!-- For browsersync gulp -->
   <script defer src="https://unpkg.com/vue@next"></script>
   <script defer src="assets/dist/js/app.min.js"></script>
-  <script async src="http://course.vuejs:8000/browser-sync/browser-sync-client.js"></script>
+  <script async src="https://vuejs.practice:8001/browser-sync/browser-sync-client.js"></script>
 
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
