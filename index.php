@@ -8,34 +8,72 @@
   <title>VueJS</title>
 
   <!-- Scripts -->
-  <!-- For browsersync gulp -->
-  <script defer src="https://unpkg.com/vue@next"></script>
-  <script defer src="assets/dist/js/app.min.js"></script>
-  <script async src="https://vuejs.practice:8001/browser-sync/browser-sync-client.js"></script>
+  <!-- Define HOST -->
+  <?
+  define('BASE_URL', siteURL());
+
+  function siteURL()
+  {
+    // Get base url of the site(protocol + domain)
+    $protocol =  "http://";
+    if (
+      //straight
+      isset($_SERVER['HTTPS']) && in_array($_SERVER['HTTPS'], ['on', 1])
+      ||
+      //proxy forwarding
+      isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'
+    ) {
+      $protocol = 'https://';
+    }
+
+    $domainName = $_SERVER['HTTP_HOST'];
+    return $protocol . $domainName;
+  }
+  ?>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/dist/css/style.min.css">
+
+  <!-- JS -->
+  <script defer src="https://unpkg.com/vue@next"></script>
+
+  <script defer src="assets/dist/js/app.min.js"></script>
+
+  <!-- Browser sync -->
+  <script async src="<?= BASE_URL ?>:8001/browser-sync/browser-sync-client.js"></script>
+
 </head>
 
 <body>
-  <section id="assignment">
-    <!-- 1) Output your name -->
-    <h2>Master {{ yourName }}</h2>
-    <!-- 2) Output your age -->
-    <p>Your age {{ yourAge }}</p>
-    <!-- 3) Output your age + 5 -->
-    <p>{{ outputAge(this.addedYears) }} in {{addedYears}} years.</p>
-    <!-- 4) Output a random number (0 to 1) -->
-    <p>Favorite Number 1: {{ outputRandomNumber() }}</p>
-    <p>Favorite Number 2: {{ randomNumber }}</p>
-    <div>
-      <!-- 5) Display some image you found via Google -->
-      <img v-bind:src="randomImage" />
-    </div>
-    <!-- 6) Prepopulate the input field with your name via the "value" attribute -->
-    <input type="text" v-bind:placeholder="yourName" v-bind:value="yourName" />
-  </section>
+  <header>
+    <h1>Ubi me nježno</h1>
+  </header>
+  <div id="game">
+    <section id="monster" class="container">
+      <h2>Monster Health</h2>
+      <div class="healthbar">
+        <div class="healthbar__value"></div>
+      </div>
+    </section>
+    <section id="player" class="container">
+      <h2>Your Health</h2>
+      <div class="healthbar">
+        <div class="healthbar__value"></div>
+      </div>
+    </section>
+    <section id="controls">
+      <button>ATTACK</button>
+      <button>SPECIAL ATTACK</button>
+      <button>HEAL</button>
+      <button>SURRENDER</button>
+    </section>
+    <section id="log" class="container">
+      <h2>Battle Log</h2>
+      <ul></ul>
+    </section>
+  </div>
 </body>
 
 </html>
