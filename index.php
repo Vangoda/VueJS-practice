@@ -78,7 +78,27 @@
     </section>
     <section id="log" class="container">
       <h2>Battle Log</h2>
-      <ul></ul>
+      <ul>
+        <li>Round 1 starting</li>
+        <li v-for="message in battleLog">
+          <div v-if="message.subject == 'Round'">
+            <span>{{ message.subject }}&nbsp;</span>
+            <span>{{ message.value }} starting</span>
+          </div>
+          <div v-else>
+            <span :class="message.subject == 'Player' ? 'log--player' : 'log--monster'">
+              {{ message.subject }}&nbsp;
+            </span>
+            <span :class="message.action != 'heal' ? 'log--damage' : 'log--heal'">
+              {{ message.action }}ed
+            </span>
+            the <span :class="message.object == 'Player' ? 'log--player' : 'log--monster'">
+              {{ message.object }}
+            </span>
+            for <span>{{ message.value }} points</span>
+          </div>
+        </li>
+      </ul>
     </section>
   </div>
 </body>
