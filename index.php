@@ -63,6 +63,12 @@
         <div class="healthbar__value" :style="{width: playerBarStyle}"></div>
       </div>
     </section>
+    <section class="container">
+      <h2>Game Over!</h2>
+      <h3>You Won!</h3>
+      <h3>You Lost!</h3>
+      <h3>It's a draw!</h3>
+    </section>
     <section id="controls">
       <button @click="attackMonster">ATTACK</button>
       <button @click="spAttackMonster" :disabled="playerSPDisabled">SPECIAL ATTACK</button>
