@@ -8,6 +8,7 @@ const app = Vue.createApp({
         magic: 20,
       },
       monster: {
+        maxHp: 100,
         hp: 100,
         attack: 10,
       },
@@ -27,6 +28,13 @@ const app = Vue.createApp({
     },
   },
   methods: {
+    resetGame() {
+      // Reset all the data to default values
+      this.player.hp = this.player.maxHp;
+      this.monster.hp = this.monster.maxHp;
+      this.round = 1;
+      this.winner = null;
+    },
     attackMonster() {
       // Attack the monster with basic attack.
       // Get random attack value and subtract it from monsters hp
