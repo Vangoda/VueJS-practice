@@ -35,6 +35,10 @@ const app = Vue.createApp({
       this.round = 1;
       this.winner = null;
     },
+    surrender() {
+      // Let the monster win
+      this.winner = "monster";
+    },
     attackMonster() {
       // Attack the monster with basic attack.
       // Get random attack value and subtract it from monsters hp
