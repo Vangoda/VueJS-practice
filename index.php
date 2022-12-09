@@ -70,7 +70,7 @@
       <h3 v-else>It's a draw!</h3>
       <button @click="resetGame">NEW GAME</button>
     </section>
-    <section id="controls" v-if="winner === null">
+    <section id="controls" v-else>
       <button @click="attackMonster">ATTACK</button>
       <button @click="spAttackMonster" :disabled="playerSPDisabled">SPECIAL ATTACK</button>
       <button @click="healPlayer">HEAL</button>
