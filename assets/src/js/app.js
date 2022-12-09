@@ -6,12 +6,13 @@ const app = Vue.createApp({
         hp: 100,
         attack: 7,
         magic: 20,
-        spCount: 1,
       },
       monster: {
         hp: 100,
         attack: 10,
       },
+      round: 1,
+      winner: null,
     };
   },
   computed: {
@@ -22,7 +23,7 @@ const app = Vue.createApp({
       return `${this.player.hp}%`;
     },
     playerSPDisabled() {
-      return this.player.spCount % 3 !== 0;
+      return this.round % 3 !== 0;
     },
   },
   methods: {
@@ -31,9 +32,6 @@ const app = Vue.createApp({
       // Get random attack value and subtract it from monsters hp
       this.monster.hp -= randDamage(this.player.attack);
       this.attackPlayer();
-
-      // Increment the special counter
-      this.player.spCount++;
     },
     spAttackMonster() {
       // Attack the monster with special attack. Special attack deals
@@ -42,7 +40,6 @@ const app = Vue.createApp({
 
       this.monster.hp -= randDamage(this.player.attack * 2);
       this.attackPlayer();
-      this.player.spCount++;
     },
     healPlayer() {
       // Attack the monster with special attack. Special attack deals
@@ -53,7 +50,6 @@ const app = Vue.createApp({
       this.player.hp =
         newHealth > this.player.maxHp ? this.player.maxHp : newHealth;
       this.attackPlayer();
-      this.player.spCount++;
     },
     attackPlayer() {
       // Attack the player with basic attack
@@ -61,22 +57,26 @@ const app = Vue.createApp({
 
       this.player.hp -= randDamage(this.monster.attack);
 
-      // Determine if the game is over
+      // Increment the special counter as this is the end of the round
+      this.round++;
+    },
+  },
+  watch: {
+    round() {
+      // Determine if the game is over and who won
       if (this.monster.hp < 1) {
+        // Set monster hp to 0 to avoid negative values
+        this.monster.hp = 0;
         if (this.player.hp < 1) {
-          alert("It's a draw");
+          this.player.hp = 0;
+          this.winner = "draw";
         } else {
-          alert("Player Won");
+          this.winner = "player";
         }
       } else if (this.player.hp < 1) {
-        alert("Monster Won");
+        this.player.hp = 0;
+        this.winner = "monster";
       }
-    },
-    watch: {
-      "player.hp": (newValue, oldValue) => {
-        if (newValue < 1) {
-        }
-      },
     },
   },
 });
