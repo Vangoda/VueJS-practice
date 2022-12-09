@@ -44,7 +44,13 @@ const app = Vue.createApp({
     attackMonster() {
       // Attack the monster with basic attack.
       // Get random attack value and subtract it from monsters hp
-      this.monster.hp -= randDamage(this.player.attack);
+      attack = randDamage(this.player.attack);
+      this.monster.hp -= attack;
+
+      // Log the action
+      this.logAction("Player", "attack", "Monster", attack);
+
+      // Monster retaliates
       this.attackPlayer();
     },
     spAttackMonster() {
@@ -53,6 +59,11 @@ const app = Vue.createApp({
       // Get random attack value and subtract it from monsters hp
 
       this.monster.hp -= randDamage(this.player.attack * 2);
+
+      // Log the action
+      this.logAction("Player", "s. attack", "Monster", attack);
+
+      // Monster attacks
       this.attackPlayer();
     },
     healPlayer() {
@@ -60,16 +71,25 @@ const app = Vue.createApp({
       // double the damage, but can only be used once every 3rd turn.
       // Get random attack value and subtract it from monsters hp
 
-      const newHealth = this.player.hp + randDamage(this.player.magic, 0);
+      attack = randDamage(this.player.magic, 0);
+      const newHealth = this.player.hp + attack;
       this.player.hp =
         newHealth > this.player.maxHp ? this.player.maxHp : newHealth;
+
+      // Log the action
+      this.logAction("Player", "Heal", "Player", attack);
+
+      // Monster strikes back
       this.attackPlayer();
     },
     attackPlayer() {
       // Attack the player with basic attack
       // Get random damage number and subtract it from players hp.
 
-      this.player.hp -= randDamage(this.monster.attack);
+      attack = randDamage(this.monster.attack);
+      this.player.hp -= attack;
+      // Log the action
+      this.logAction("Monster", "Attack", "Player", attack);
 
       // Increment the special counter as this is the end of the round
       this.round++;
@@ -79,6 +99,9 @@ const app = Vue.createApp({
       // Example Player attacked the Monster for 10dmg.
       // Subject is player, action is attack, Monster is object and
       // the value is 10.
+
+      message = `${subject} ${action}ed the ${object} for ${value} points.`;
+      this.battleLog.push(message);
     },
   },
   watch: {
@@ -96,6 +119,9 @@ const app = Vue.createApp({
       } else if (this.player.hp < 1) {
         this.player.hp = 0;
         this.winner = "monster";
+      } else {
+        // Log the round number if game not over
+        this.battleLog.push(`Round number ${this.round}`);
       }
     },
   },
