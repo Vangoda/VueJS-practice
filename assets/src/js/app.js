@@ -14,6 +14,7 @@ const app = Vue.createApp({
       },
       round: 1,
       winner: null,
+      battleLog: [],
     };
   },
   computed: {
@@ -34,6 +35,7 @@ const app = Vue.createApp({
       this.monster.hp = this.monster.maxHp;
       this.round = 1;
       this.winner = null;
+      this.battleLog = [];
     },
     surrender() {
       // Let the monster win
@@ -71,6 +73,12 @@ const app = Vue.createApp({
 
       // Increment the special counter as this is the end of the round
       this.round++;
+    },
+    logAction(subject, action, object, value) {
+      // Logs each action to battle log
+      // Example Player attacked the Monster for 10dmg.
+      // Subject is player, action is attack, Monster is object and
+      // the value is 10.
     },
   },
   watch: {
