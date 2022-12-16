@@ -48,58 +48,14 @@
 
 <body>
   <header>
-    <h1>Ubi me nježno</h1>
+    <h1>Vue Behind The Scenes</h1>
   </header>
-  <div id="game">
-    <section id="monster" class="container">
-      <h2>Monster Health</h2>
-      <div class="healthbar">
-        <div class="healthbar__value" :style="{width: monsterBarStyle}"></div>
-      </div>
-    </section>
-    <section id="player" class="container">
-      <h2>Your Health</h2>
-      <div class="healthbar">
-        <div class="healthbar__value" :style="{width: playerBarStyle}"></div>
-      </div>
-    </section>
-    <section class="container" v-if="winner">
-      <h2>Game Over!</h2>
-      <h3 v-if="winner === 'player'">You Won!</h3>
-      <h3 v-else-if="winner === 'monster'">You Lost!</h3>
-      <h3 v-else>It's a draw!</h3>
-      <button @click="resetGame">NEW GAME</button>
-    </section>
-    <section id="controls" v-else>
-      <button @click="attackMonster">ATTACK</button>
-      <button @click="spAttackMonster" :disabled="playerSPDisabled">SPECIAL ATTACK</button>
-      <button @click="healPlayer">HEAL</button>
-      <button @click="surrender">SURRENDER</button>
-    </section>
-    <section id="log" class="container">
-      <h2>Battle Log</h2>
-      <ul>
-        <li>Round 1 starting</li>
-        <li v-for="message in battleLog">
-          <div v-if="message.subject == 'Round'">
-            <span>{{ message.subject }}&nbsp;</span>
-            <span>{{ message.value }} starting</span>
-          </div>
-          <div v-else>
-            <span :class="message.subject == 'Player' ? 'log--player' : 'log--monster'">
-              {{ message.subject }}&nbsp;
-            </span>
-            <span :class="message.action != 'heal' ? 'log--damage' : 'log--heal'">
-              {{ message.action }}ed
-            </span>
-            the <span :class="message.object == 'Player' ? 'log--player' : 'log--monster'">
-              {{ message.object }}
-            </span>
-            for <span>{{ message.value }} points</span>
-          </div>
-        </li>
-      </ul>
-    </section>
+  <section id="app">
+    <h2>How Vue Works</h2>
+    <input type="text" @input="saveInput">
+    <button @click="setText">Set Text</button>
+    <p>{{ message }}</p>
+  </section>
   </div>
 </body>
 
