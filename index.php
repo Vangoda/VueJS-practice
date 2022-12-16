@@ -52,7 +52,7 @@
   </header>
   <section id="app">
     <h2>How Vue Works</h2>
-    <input type="text" @input="saveInput">
+    <input type="text" ref="userText">
     <button @click="setText">Set Text</button>
     <p>{{ message }}</p>
   </section>
