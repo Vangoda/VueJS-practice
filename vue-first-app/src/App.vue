@@ -4,8 +4,16 @@
       <h1>Maj Frends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        name="Manuel Jackson"
+        phone-number="01 234 5678"
+        email-address="manuel@gmail.com"
+      ></friend-contact>
+      <friend-contact
+        name="James Jackson"
+        phone-number="01 234 5678"
+        email-address="james@gmail.com"
+      ></friend-contact>
     </ul>
   </section>
 </template>
