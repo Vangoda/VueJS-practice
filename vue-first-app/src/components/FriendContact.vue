@@ -15,10 +15,16 @@
 <script>
 export default {
   props: {
-    name: String,
-    phoneNumber: String,
-    emailAddress: String,
-    isFavorite: String,
+    name: {
+      type: String,
+      required: true,
+      validator: function (value) {
+        return value.length < 50;
+      },
+    },
+    phoneNumber: { type: String, required: true },
+    emailAddress: { type: String, required: true },
+    isFavorite: { type: Boolean, required: false, default: false },
   },
   data() {
     return {
