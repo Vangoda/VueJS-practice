@@ -6,11 +6,8 @@
     <ul>
       <friend-contact
         v-for="friend in friends"
+        v-bind="friend"
         :key="friend.id"
-        :name="friend.name"
-        :phone-number="friend.phone"
-        :email-address="friend.email"
-        :is-favorite="friend.isFavorite"
       ></friend-contact>
     </ul>
   </section>
@@ -24,15 +21,21 @@ export default {
         {
           id: "Manuel",
           name: "Manuel Jackson",
-          phone: "01 234 5678",
-          email: "manuel@gmail.com",
-          isFavorite: "true",
+          phoneNumber: "01 234 5678",
+          emailAddress: "manuel@gmail.com",
+          isFavorite: true,
         },
         {
           id: "James",
           name: "James Jackson",
-          phone: "01 234 1178",
-          email: "manuel@gsail.com",
+          phoneNumber: "01 234 1178",
+          emailAddress: "manuel@gsail.com",
+        },
+        {
+          id: "223",
+          name: "loremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasd",
+          phoneNumber: "01 234 1178",
+          emailAddress: "manuel@gsail.com",
         },
       ],
     };
