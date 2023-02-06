@@ -3,12 +3,14 @@
     <header>
       <h1>Maj Frends</h1>
     </header>
+    <new-friend @add-contact="addContact" />
     <ul>
       <friend-contact
         v-for="friend in friends"
         v-bind="friend"
         :key="friend.id"
         @toggle-is-favorite="toggleFavoriteFriend"
+        @delete-friend="deleteFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -49,6 +51,14 @@ export default {
       );
       friendIdentified.isFavorite = !friendIdentified.isFavorite;
     },
+    addContact(friend) {
+      this.friends.push(friend);
+    },
+    deleteFriend(friendId) {
+      this.friends = this.friends.filter((friend) => {
+        return friend.id !== friendId;
+      });
+    },
   },
   computed: {},
 };
@@ -81,7 +91,8 @@ header {
   padding: 0;
   list-style: none;
 }
-#app li {
+#app li,
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
