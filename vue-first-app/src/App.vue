@@ -8,7 +8,7 @@
         v-for="friend in friends"
         v-bind="friend"
         :key="friend.id"
-        @toogle-is-favorite="toggleFavoriteFriend"
+        @toggle-is-favorite="toggleFavoriteFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -30,19 +30,20 @@ export default {
           id: "James",
           name: "James Jackson",
           phoneNumber: "01 234 1178",
-          emailAddress: "manuel@gsail.com",
+          emailAddress: "james@gsail.com",
         },
         {
           id: "223",
-          name: "loremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasdloremasdasdasdasdasdasdasdasd",
+          name: "loremas",
           phoneNumber: "01 234 1178",
-          emailAddress: "manuel@gsail.com",
+          emailAddress: "lorem@gsail.com",
         },
       ],
     };
   },
   methods: {
     toggleFavoriteFriend(friendId) {
+      console.log(`toggled favorite for id: ${friendId}`);
       const friendIdentified = this.friends.find(
         (friend) => friend.id === friendId
       );

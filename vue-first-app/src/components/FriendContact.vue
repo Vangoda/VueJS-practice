@@ -1,13 +1,13 @@
 <template>
   <li>
-    <h2>{{ friend.isFavorite ? "Favorite friend" : "" }} {{ friend.name }}</h2>
+    <h2>{{ isFavorite ? "Favorite friend" : "" }} {{ name }}</h2>
     <button @click="toggleFavorite">Toggle favorite</button>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} details
     </button>
     <ul v-if="detailsAreVisible">
-      <li><strong>Phone:</strong> {{ friend.phoneNumber }}</li>
-      <li><strong>Email:</strong> {{ friend.emailAddress }}</li>
+      <li><strong>Phone:</strong> {{ phoneNumber }}</li>
+      <li><strong>Email:</strong> {{ emailAddress }}</li>
     </ul>
   </li>
 </template>
@@ -30,12 +30,6 @@ export default {
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        name: this.name,
-        phoneNumber: this.phoneNumber,
-        emailAddress: this.emailAddress,
-        isFavorite: this.isFavorite,
-      },
     };
   },
   methods: {
