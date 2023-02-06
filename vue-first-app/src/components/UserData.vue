@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" @update="updateUsername" :value="username" />
-    <input type="text" @update="updateAge" :value="age" />
+    <input type="text" @input="updateUsername" :value="username" />
+    <input type="number" @input="updateAge" :value="age" />
   </div>
 </template>
 
@@ -14,11 +14,11 @@ export default {
   },
   emits: ["update:username", "update:age"],
   methods: {
-    updateUsername() {
-      this.$emit("update:username", this.$event.target.value);
+    updateUsername(event) {
+      this.$emit("update:username", event.target.value);
     },
-    updateAge() {
-      this.$emit("update:age", this.$event.target.value);
+    updateAge(event) {
+      this.$emit("update:age", +event.target.value);
     },
   },
 };

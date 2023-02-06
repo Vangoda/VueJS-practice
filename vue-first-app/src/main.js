@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import UserData from "./components/ActiveUser.vue";
+import UserData from "./components/UserData.vue";
 import ActiveUser from "./components/ActiveUser.vue";
 
 createApp(App)

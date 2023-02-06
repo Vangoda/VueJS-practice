@@ -1,6 +1,8 @@
 <template>
-  <h2>{{ username }}</h2>
-  <h3>{{ age }} years old.</h3>
+  <div>
+    <h2>{{ username }}</h2>
+    <h3>{{ age }} years old.</h3>
+  </div>
 </template>
 
 <script>
